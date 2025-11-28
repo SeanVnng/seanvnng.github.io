@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function() {
             nav_work: "Work",
             nav_about: "About",
             nav_contact: "Contact",
-            hero_status: "Apprenticeship & DevOps",
+            hero_status: "START : 09/2025",
             hero_subtitle_1: "Network & Telecom Student.",
             hero_subtitle_2: "I design",
             hero_word_1: "resilient",
@@ -185,3 +185,4 @@ document.addEventListener("DOMContentLoaded", function() {
     window.scrollTo(0,0);
 
 });
+
