@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sean Van Ngoc | Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { 'neutral-900': '#050505', 'accent': '#2563eb' },
+                    fontFamily: { sans: ['General Sans', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] }
+                }
+            }
+        }
+    </script>
+    
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="antialiased selection:bg-blue-600 selection:text-white dark:selection:bg-blue-500 dark:selection:text-white">
+
+    <!-- LOADER INTRO -->
+    <div id="loader" class="loader-overlay">
+        <div class="loader-text-wrapper">
+            <span id="loader-text" class="loader-text text-black dark:text-white">Sean V.</span>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="fixed top-0 w-full z-50 px-6 py-5 flex justify-between items-center bg-white/80 dark:bg-[#050505]/80 backdrop-blur-md border-b border-[rgba(0,0,0,0.05)] dark:border-[rgba(255,255,255,0.05)] transition-all duration-500">
+        <a href="#" class="text-lg font-bold tracking-tight z-50 relative mix-blend-difference text-black dark:text-white hover:text-blue-600 transition-colors">Sean.</a>
+        
+        <nav class="hidden md:flex gap-8 absolute left-1/2 -translate-x-1/2">
+            <a href="#work" class="nav-link relative text-sm font-medium uppercase tracking-wide opacity-80 hover:opacity-100" data-i18n="nav_work">Projets</a>
+            <a href="#about" class="nav-link relative text-sm font-medium uppercase tracking-wide opacity-80 hover:opacity-100" data-i18n="nav_about">Profil</a>
+            <a href="#contact" class="nav-link relative text-sm font-medium uppercase tracking-wide opacity-80 hover:opacity-100" data-i18n="nav_contact">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3 z-50">
+            <!-- HEURE -->
+            <span id="time-display" class="hidden sm:block text-xs font-mono opacity-50 w-[80px] text-right">--:--</span>
+            
+            <!-- LANG SWITCH -->
+            <button id="lang-toggle" class="p-2 w-10 h-10 flex items-center justify-center border border-black/10 dark:border-white/10 rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors font-mono text-xs font-bold">
+                EN
+            </button>
+
+            <!-- THEME SWITCH -->
+            <button id="theme-toggle" class="p-2 w-10 h-10 flex items-center justify-center border border-black/10 dark:border-white/10 rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-colors">
+                <i data-lucide="sun" class="w-4 h-4 hidden dark:block"></i>
+                <i data-lucide="moon" class="w-4 h-4 block dark:hidden"></i>
+            </button>
+
+            <!-- BURGER MOBILE -->
+            <button id="menu-btn" class="md:hidden p-2 bg-black text-white dark:bg-white dark:text-black rounded-full">
+                <i data-lucide="menu" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 dark:bg-black/95 hidden flex flex-col justify-center items-center gap-8 md:hidden">
+        <a href="#work" class="mobile-link text-6xl font-semibold tracking-tighter hover:text-blue-600 transition-colors" data-i18n="nav_work">Projets</a>
+        <a href="#about" class="mobile-link text-6xl font-semibold tracking-tighter hover:text-blue-600 transition-colors" data-i18n="nav_about">Profil</a>
+        <a href="#contact" class="mobile-link text-6xl font-semibold tracking-tighter hover:text-blue-600 transition-colors" data-i18n="nav_contact">Contact</a>
+    </div>
+
+    <main>
+        <!-- HERO -->
+        <section class="relative h-[100dvh] w-full flex flex-col justify-center px-6 overflow-hidden">
+            <div class="absolute inset-0 grid-bg opacity-50 dark:opacity-30"></div>
+            <div class="ambient-orb"></div>
+            
+            <div class="z-10 w-full max-w-7xl mx-auto pt-10">
+                <div class="anim-enter flex items-center gap-3 mb-8">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                    </span>
+                    <span class="text-xs font-mono uppercase tracking-widest opacity-60 text-blue-600 dark:text-blue-400" data-i18n="hero_status">Alternance & DevOps</span>
+                </div>
+
+                <h1 class="hero-title anim-enter delay-100 mix-blend-difference">
+                    SEAN <br>
+                    VAN NGOC
+                </h1>
+
+                <div class="mt-12 md:mt-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 anim-enter delay-200 border-t border-[var(--line-color)] pt-8">
+                    <p class="text-lg md:text-2xl max-w-xl leading-snug text-gray-700 dark:text-gray-300">
+                        <span data-i18n="hero_subtitle_1">Étudiant en Réseaux & Télécoms.</span><br>
+                        <span data-i18n="hero_subtitle_2">Je conçois des infrastructures</span> <span class="text-accent font-medium" data-i18n="hero_word_1">résilientes</span> <span data-i18n="hero_subtitle_3">et des interfaces</span> <span class="text-accent font-medium" data-i18n="hero_word_2">précises</span>.
+                    </p>
+                    <div class="hidden md:flex flex-col items-end gap-2 opacity-40">
+                        <span class="text-[10px] font-mono uppercase tracking-widest" data-i18n="hero_scroll">Scroll pour explorer</span>
+                        <i data-lucide="arrow-down" class="w-4 h-4 animate-bounce text-accent"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="work" class="py-32 px-6">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex items-baseline justify-between mb-16 reveal">
+                    <h2 class="section-title" data-i18n="section_projects">Projets</h2>
+                    <span class="text-sm font-mono opacity-40 text-accent">( 2024 — 2025 )</span>
+                </div>
+
+                <div class="flex flex-col">
+                    <!-- Item 1 -->
+                    <a href="https://github.com/SeanVnng/Assistant-Vocal" target="_blank" class="project-item group py-12 flex flex-col md:flex-row justify-between md:items-center gap-6 cursor-pointer relative overflow-hidden reveal">
+                        <div class="md:w-1/4 z-10">
+                            <span class="text-[10px] font-mono border border-[var(--line-color)] px-2 py-1 rounded-full text-blue-600 dark:text-blue-400 bg-[var(--bg-color)]">IA / PYTHON / SPEECH</span>
+                        </div>
+                        <div class="md:w-2/4 z-10">
+                            <h3 class="text-3xl font-medium mb-1 group-hover:translate-x-2 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-blue-600 dark:group-hover:text-blue-400" data-i18n="proj_1_title">Assistant Vocal IA</h3>
+                            <p class="opacity-60 text-sm">Gemini API • Speech Recog • ElevenLabs</p>
+                        </div>
+                        <div class="md:w-1/4 flex justify-end z-10">
+                            <div class="w-10 h-10 rounded-full border border-[var(--line-color)] flex items-center justify-center bg-[var(--bg-color)]">
+                                <i data-lucide="arrow-up-right" class="project-arrow w-5 h-5 opacity-40 transition-all duration-300"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Item 2 -->
+                    <a href="https://github.com/SeanVnng/SAEs/tree/main/Construire-Un-R%C3%A9seau" target="_blank" class="project-item group py-12 flex flex-col md:flex-row justify-between md:items-center gap-6 cursor-pointer relative overflow-hidden reveal delay-100">
+                        <div class="md:w-1/4 z-10">
+                            <span class="text-[10px] font-mono border border-[var(--line-color)] px-2 py-1 rounded-full text-purple-600 dark:text-purple-400 bg-[var(--bg-color)]">CISCO / VLAN / NETWORK</span>
+                        </div>
+                        <div class="md:w-2/4 z-10">
+                            <h3 class="text-3xl font-medium mb-1 group-hover:translate-x-2 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-purple-600 dark:group-hover:text-purple-400" data-i18n="proj_2_title">caca</h3>
+                            <p class="opacity-60 text-sm">Cisco • VLANs • OSPF • Firewalling</p>
+                        </div>
+                        <div class="md:w-1/4 flex justify-end z-10">
+                            <div class="w-10 h-10 rounded-full border border-[var(--line-color)] flex items-center justify-center bg-[var(--bg-color)]">
+                                <i data-lucide="arrow-up-right" class="project-arrow w-5 h-5 opacity-40 transition-all duration-300"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Item 3 -->
+                    <a href="https://github.com/SeanVnng/Extension-Chrome-Aesthetic-Notepad-To-Do" target="_blank" class="project-item group py-12 flex flex-col md:flex-row justify-between md:items-center gap-6 cursor-pointer relative overflow-hidden reveal delay-200">
+                        <div class="md:w-1/4 z-10">
+                            <span class="text-[10px] font-mono border border-[var(--line-color)] px-2 py-1 rounded-full text-red-600 dark:text-red-400 bg-[var(--bg-color)]">EXTENSION / JAVASCRIPT / WEB</span>
+                        </div>
+                        <div class="md:w-2/4 z-10">
+                            <h3 class="text-3xl font-medium mb-1 group-hover:translate-x-2 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-red-600 dark:group-hover:text-red-400" data-i18n="proj_3_title">Extension Chrome - ToDoList </h3>
+                            <p class="opacity-60 text-sm">JavaScript • Chrome API • LocalStorage</p>
+                        </div>
+                        <div class="md:w-1/4 flex justify-end z-10">
+                            <div class="w-10 h-10 rounded-full border border-[var(--line-color)] flex items-center justify-center bg-[var(--bg-color)]">
+                                <i data-lucide="arrow-up-right" class="project-arrow w-5 h-5 opacity-40 transition-all duration-300"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Item 4 -->
+                    <a href="https://github.com/SeanVnng/SAEs/tree/main/Carte-Interactive" target="_blank" class="project-item group py-12 flex flex-col md:flex-row justify-between md:items-center gap-6 cursor-pointer relative overflow-hidden reveal">
+                        <div class="md:w-1/4 z-10">
+                            <span class="text-[10px] font-mono border border-[var(--line-color)] px-2 py-1 rounded-full text-orange-600 dark:text-orange-400 bg-[var(--bg-color)]">WEB / PYTHON / DATA</span>
+                        </div>
+                        <div class="md:w-2/4 z-10">
+                            <h3 class="text-3xl font-medium mb-1 group-hover:translate-x-2 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-orange-600 dark:group-hover:text-orange-400" data-i18n="proj_4_title">Carte Interactive – Data Visualization</h3>
+                            <p class="opacity-60 text-sm">Python • CSS • HTML • CSV </p>
+                        </div>
+                        <div class="md:w-1/4 flex justify-end z-10">
+                            <div class="w-10 h-10 rounded-full border border-[var(--line-color)] flex items-center justify-center bg-[var(--bg-color)]">
+                                <i data-lucide="arrow-up-right" class="project-arrow w-5 h-5 opacity-40 transition-all duration-300"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <!-- Item 5 -->
+                    <a href="https://github.com/SeanVnng/Projet_Camera_PY" target="_blank" class="project-item group py-12 flex flex-col md:flex-row justify-between md:items-center gap-6 cursor-pointer relative overflow-hidden reveal">
+                        <div class="md:w-1/4 z-10">
+                            <span class="text-[10px] font-mono border border-[var(--line-color)] px-2 py-1 rounded-full text-green-600 dark:text-green-400 bg-[var(--bg-color)]">VISION / IA / PYTHON</span>
+                        </div>
+                        <div class="md:w-2/4 z-10">
+                            <h3 class="text-3xl font-medium mb-1 group-hover:translate-x-2 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:text-green-600 dark:group-hover:text-green-400" data-i18n="proj_5_title">Caméra IA – Détection en Temps Réel</h3>
+                            <p class="opacity-60 text-sm">Python • IA • LocalStorage</p>
+                        </div>
+                        <div class="md:w-1/4 flex justify-end z-10">
+                            <div class="w-10 h-10 rounded-full border border-[var(--line-color)] flex items-center justify-center bg-[var(--bg-color)]">
+                                <i data-lucide="arrow-up-right" class="project-arrow w-5 h-5 opacity-40 transition-all duration-300"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROFILE & SKILLS -->
+        <section id="about" class="py-32 px-6 bg-[var(--surface-hover)] border-t border-[var(--line-color)]">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24 reveal">
+                    <div class="md:col-span-4">
+                        <h2 class="section-title" data-i18n="section_profile">Profil</h2>
+                    </div>
+                    <div class="md:col-span-8">
+                        <p class="text-2xl md:text-4xl font-medium leading-tight mb-8 text-balance">
+                            <span data-i18n="bio_line_1">Technicien curieux.</span> <br>
+                            <span data-i18n="bio_line_2">Développeur</span> <span class="text-accent" data-i18n="bio_word_1">pragmatique</span>.
+                        </p>
+                        <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mb-8">
+                            <span data-i18n="bio_desc_1">Actuellement étudiant en 2e année de BUT R&T, spécialité </span> 
+                            <strong class="text-black dark:text-white font-semibold" data-i18n="bio_a_1">Cybersécurité</strong>
+                            
+                            <span data-i18n="bio_desc_2">. J’aime optimiser et sécuriser les systèmes. En 2025, je vise une </span>
+                            <strong class="text-black dark:text-white font-semibold" data-i18n="bio_a_2">école d’ingénieur</strong>
+
+                            <span data-i18n="bio_desc_3"> orientée </span> 
+                            <strong class="text-black dark:text-white font-semibold" data-i18n="bio_a_3">Cybersécurité</strong> 
+                            
+                            <span data-i18n="bio_desc_4"> ou </span> 
+                            <strong class="text-black dark:text-white font-semibold" data-i18n="bio_a_4">Intelligence Artificielle</strong> 
+                            
+                            <span data-i18n="bio_desc_5"> afin de travailler sur des projets à fort impact.</span>
+                        </p>
+                    </div>
+                </div>
+                <!-- SKILLS -->
+                <div class="border-t border-[var(--line-color)] pt-16 mb-24 reveal">
+                    <h3 class="font-mono text-xs uppercase tracking-widest opacity-40 mb-12" data-i18n="section_stack">Stack Technique</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                        <!-- Dev -->
+                        <div class="skill-block space-y-6">
+                            <div class="flex items-center gap-3 opacity-80"><i data-lucide="code-2" class="w-5 h-5 text-blue-600"></i><span class="font-bold">Development</span></div>
+                            <ul class="space-y-4 font-mono text-sm opacity-80">
+                                <li class="flex justify-between border-b border-dashed border-[var(--line-color)] pb-2"><span>Python</span><span class="text-accent opacity-80">Automatisation, IA, scripts</span></li>
+                                <li class="flex justify-between border-b border-dashed border-[var(--line-color)] pb-2"><span>Bash</span><span class="opacity-50">Shell scripting, gestion système</span></li>
+                                <li class="flex justify-between border-b border-dashed border-[var(--line-color)] pb-2"><span>JS / HTML</span><span class="opacity-50">Extensions Chrome, UI Web</span></li>
+                            </ul>
+                        </div>
+                        <!-- Sys -->
+                        <div class="skill-block space-y-6">
+                            <div class="flex items-center gap-3 opacity-80"><i data-lucide="server" class="w-5 h-5 text-blue-600"></i><span class="font-bold">System</span></div>
+                            <ul class="space-y-4 font-mono text-sm opacity-80">
+                                <li class="flex justify-between border-b border-dashed border-[var(--line-color)] pb-2"><span>Linux</span><span class="text-accent opacity-80">Admin & environnement dev</span></li>
+                                <li class="flex justify-between border-b border-dashed border-[var(--line-color)] pb-2"><span>Docker</span><span class="opacity-50">Conteneurisation de projets</span></li>
+                                <li class="flex justify-between border-b border-dashed border-[var(--line-color)] pb-2"><span>Win AD</span><span class="opacity-50">Annuaire & gestion d’identité</span></li>
+                            </ul>
+                        </div>
+                        <!-- Net -->
+                        <div class="skill-block space-y-6">
+                            <div class="flex items-center gap-3 opacity-80"><i data-lucide="network" class="w-5 h-5 text-blue-600"></i><span class="font-bold">Network</span></div>
+                            <ul class="space-y-4 font-mono text-sm opacity-80">
+                                <li class="flex justify-between border-b border-dashed border-[var(--line-color)] pb-2"><span>Cisco</span><span class="text-accent opacity-80">Réseau & configuration VLAN</span></li>
+                                <li class="flex justify-between border-b border-dashed border-[var(--line-color)] pb-2"><span>Wireshark</span><span class="opacity-50">Analyse de trafic</span></li>
+                                <li class="flex justify-between border-b border-dashed border-[var(--line-color)] pb-2"><span>OSPF</span><span class="opacity-50">Architecture & routage dynamique</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BADGES -->
+                <div class="reveal">
+                    <div class="flex justify-between items-end mb-8">
+                        <h3 class="font-mono text-xs uppercase tracking-widest opacity-40">Google Cloud Certs</h3>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        
+                        <a href="https://www.skills.google/public_profiles/adeb98cd-fa14-4181-a650-a406e80edbac/badges/20480453" target="_blank" class="badge p-8 flex flex-col items-center text-center gap-6 rounded-2xl group">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="GCP" class="w-24 h-24 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                            <div>
+                                <div class="font-bold text-base group-hover:text-blue-600 transition-colors">MLOps Gen AI</div>
+                                <div class="text-xs opacity-40 font-mono mt-2">NOV 25</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.skills.google/public_profiles/adeb98cd-fa14-4181-a650-a406e80edbac/badges/20477931" target="_blank" class="badge p-8 flex flex-col items-center text-center gap-6 rounded-2xl group">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="GCP" class="w-24 h-24 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                            <div>
+                                <div class="font-bold text-base group-hover:text-blue-600 transition-colors">Intro LLMs</div>
+                                <div class="text-xs opacity-40 font-mono mt-2">NOV 25</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.skills.google/public_profiles/adeb98cd-fa14-4181-a650-a406e80edbac/badges/20474724" target="_blank" class="badge p-8 flex flex-col items-center text-center gap-6 rounded-2xl group">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Google_Cloud_logo.svg" alt="GCP" class="w-24 h-24 grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300">
+                            <div>
+                                <div class="font-bold text-base group-hover:text-blue-600 transition-colors">Gen AI</div>
+                                <div class="text-xs opacity-40 font-mono mt-2">NOV 25</div>
+                            </div>
+                        </a>
+
+                        <a href="https://www.skills.google/public_profiles/adeb98cd-fa14-4181-a650-a406e80edbac" class="badge p-8 flex flex-col items-center justify-center gap-4 rounded-2xl group bg-[var(--surface-hover)] hover:border-blue-500">
+                            <i data-lucide="arrow-right" class="w-12 h-12 group-hover:translate-x-2 transition-transform duration-300 text-blue-600"></i>
+                            <div class="font-bold text-sm group-hover:text-blue-600" data-i18n="btn_see_all">Voir tout</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contact" class="py-32 px-6 border-t border-[var(--line-color)] text-center relative overflow-hidden">
+        <div class="absolute inset-0 grid-bg opacity-20"></div>
+        <div class="ambient-orb" style="top: 50%; left: 50%; width: 500px; height: 500px; opacity: 0.3;"></div>
+        
+        <div class="relative z-10 reveal">
+            <h2 class="text-[10vw] font-bold tracking-tighter leading-none mb-10 opacity-90">LET'S WORK</h2>
+            <a href="mailto:seanvanngoc@gmail.com" class="inline-block text-xl md:text-3xl border border-[var(--line-color)] bg-[var(--bg-color)] rounded-full px-10 py-5 hover:scale-105 transition-transform duration-300 shadow-sm hover:border-blue-500 hover:text-blue-600">
+                seanvanngoc@gmail.com
+            </a>
+            
+            <div class="mt-24 flex justify-center gap-10 text-xs font-mono opacity-50 uppercase tracking-widest">
+                <a href="https://linkedin.com/in/seanvanngoc" class="hover:text-blue-600 transition-colors">LinkedIn</a>
+                <a href="https://github.com/SeanVnng" class="hover:text-purple-600 transition-colors">GitHub</a>
+                <span>© 2025 Sean.</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
