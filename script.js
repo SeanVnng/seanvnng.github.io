@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
             nav_work: "Projets",
             nav_about: "Profil",
             nav_contact: "Contact",
-            hero_status: "Alternance & DevOps",
+            hero_status: "START : 09/2025",
             hero_subtitle_1: "Étudiant en Réseaux & Télécoms.",
             hero_subtitle_2: "Je conçois des infrastructures",
             hero_word_1: "résilientes",
@@ -183,4 +183,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
     if (history.scrollRestoration) history.scrollRestoration = 'manual';
     window.scrollTo(0,0);
+
 });
