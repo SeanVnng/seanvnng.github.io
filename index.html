@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sean Van Ngoc — Cybersécurité</title>
+<meta name="description" content="Portfolio de Sean Van Ngoc — Étudiant BUT R&T Cybersécurité, futur élève-ingénieur EFREI.">
+<!-- Police principale du site chargée depuis Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Curseur personnalisé qui suit la souris (géré en JS) -->
+<div class="cursor" id="cursor"></div>
+
+<!-- Barre de progression en haut de page qui avance avec le scroll -->
+<div id="progress-bar"></div>
+
+<!-- Page d'intro qui s'affiche au chargement avant le portfolio -->
+<div id="intro-page">
+  <div class="intro-inner">
+    <!-- data-text sert à l'effet glitch (le JS copie ce texte pour créer le tremblement) -->
+    <div class="intro-initials" data-text="SVN">SVN</div>
+    <div class="intro-fullname">Sean Van Ngoc</div>
+    <div class="intro-line"></div>
+    <button class="intro-enter-btn" onclick="enterSite()">
+      <span id="introLabel">Entrer dans le portfolio</span>
+    </button>
+  </div>
+</div>
+
+<!-- Barre de navigation fixe en haut, avec les liens, l'heure et les boutons -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">SVN</a>
+  <ul class="nav-center">
+    <li><a href="#demarche"    id="nav-link-1">Parcours</a></li>
+    <li><a href="#competences" id="nav-link-2">Compétences</a></li>
+    <li><a href="#projets"     id="nav-link-3">Projets</a></li>
+    <li><a href="#experience"  id="nav-link-4">Expérience</a></li>
+  </ul>
+  <div class="nav-controls">
+    <!-- Heure de Paris en temps réel, format changé selon la langue -->
+    <div class="nav-clock" id="navClock">00:00:00</div>
+    <button class="nav-ctrl-btn" id="langBtn"  onclick="toggleLang()">FR / EN</button>
+    <button class="nav-ctrl-btn" id="themeBtn" onclick="toggleTheme()">◐ Mode</button>
+  </div>
+</nav>
+
+<!-- Section d'accueil plein écran -->
+<section id="hero">
+  <!-- Texte de fond décoratif, caché aux lecteurs d'écran (aria-hidden) -->
+  <div class="hero-bg-text" aria-hidden="true">CYBER</div>
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal" id="hero-eyebrow">Portfolio · Bilan de Compétences · 2025</p>
+    <!-- Le nom est découpé en deux .line pour l'animation d'entrée ligne par ligne -->
+    <h1 class="hero-name">
+      <span class="line"><span>SEAN</span></span>
+      <span class="line"><span>VAN NGOC</span></span>
+    </h1>
+    <p class="hero-sub reveal d2" id="hero-sub">
+      <strong id="hero-sub-strong">Étudiant BUT Réseaux &amp; Télécom — option Cybersécurité</strong><br>
+      <span id="hero-sub-span">Futur Élève-Ingénieur EFREI · Passion pour la sécurité des systèmes, l'infrastructure réseau et l'automatisation.</span>
+    </p>
+    <div class="hero-actions reveal d3">
+      <!-- Le bouton download pointe vers le ZIP contenant tous les documents de preuve -->
+      <a href="projets_sean_van_ngoc.zip" class="btn" download>
+        <span id="hero-btn">↓ Télécharger le contenu du BUT2 RT (ZIP)</span>
+      </a>
+      <a href="#demarche" class="btn-ghost" id="hero-ghost">Explorer le portfolio →</a>
+    </div>
+  </div>
+  <div class="hero-scroll" id="hero-scroll" aria-hidden="true">Défiler</div>
+</section>
+
+<div class="divider reveal-clip"></div>
+
+<!-- Section 01 : explication de ma démarche de bilan de compétences -->
+<section id="demarche">
+  <p class="section-label" id="s01-label">01 — Approche réflexive</p>
+  <h2 class="section-title" id="s01-title">La<br>Démarche</h2>
+
+  <div class="demarche-grid">
+    <!-- Colonne gauche sticky : elle reste visible pendant qu'on scroll les étapes à droite -->
+    <div class="demarche-sticky">
+      <div class="synthese-block reveal-scale">
+        <p class="synth-label" id="synth-label">Synthèse de trajectoire</p>
+        <span class="synth-tag" id="synth-t1">Introduction</span>
+        <p id="synth-p1">Ce portfolio est le fruit d'une démarche active de capitalisation : chaque SAÉ, chaque TP et chaque stage constitue une trace tangible de progression, analysée ici avec recul critique.</p>
+        <span class="synth-tag" id="synth-t2">Développement</span>
+        <p id="synth-p2">Ma trajectoire s'articule autour de trois axes : montée en compétences techniques, acquisition de savoir-faire transversaux et confrontation terrain via le stage à Necker.</p>
+        <span class="synth-tag" id="synth-t3">Conclusion</span>
+        <p id="synth-p3">La cybersécurité demande autant de rigueur méthodologique que de curiosité intellectuelle permanente. Je me projette à l'EFREI avec la maturité nécessaire.</p>
+      </div>
+    </div>
+
+    <!-- Colonne droite : les 4 étapes de ma démarche, numérotées automatiquement en CSS -->
+    <div class="demarche-steps">
+      <div class="demarche-step reveal d1">
+        <span class="demarche-step-num"></span>
+        <div class="demarche-step-content">
+          <h4 id="step1-h">Collecte des traces d'apprentissage</h4>
+          <p id="step1-p">Inventaire systématique des comptes rendus de TP, rapports de SAÉ et livrables produits durant le BUT R&amp;T. Chaque document constitue une preuve datée de mes acquis.</p>
+        </div>
+      </div>
+      <div class="demarche-step reveal d2">
+        <span class="demarche-step-num"></span>
+        <div class="demarche-step-content">
+          <h4 id="step2-h">Analyse critique et mise en contexte</h4>
+          <p id="step2-p">Relecture active avec identification des compétences mobilisées, des difficultés rencontrées et des stratégies d'adaptation employées.</p>
+        </div>
+      </div>
+      <div class="demarche-step reveal d3">
+        <span class="demarche-step-num"></span>
+        <div class="demarche-step-content">
+          <h4 id="step3-h">Mise en évidence par la preuve</h4>
+          <p id="step3-p">Plutôt que de noter mes compétences, je les ancre dans des faits : chaque aptitude est justifiée par un livrable, une situation réelle ou un retour terrain. La preuve parle à ma place.</p>
+        </div>
+      </div>
+      <div class="demarche-step reveal d4">
+        <span class="demarche-step-num"></span>
+        <div class="demarche-step-content">
+          <h4 id="step4-h">Mise en récit et projection professionnelle</h4>
+          <p id="step4-p">Transformation du bilan en argumentaire cohérent, ancré dans des preuves concrètes, pour exprimer clairement mon profil à l'EFREI et sur le marché du travail.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider reveal-clip"></div>
+
+<!-- Section 02 : tableau d'autoévaluation des compétences transverses -->
+<section id="competences">
+  <p class="section-label" id="s02-label">02 — Autoévaluation</p>
+  <h2 class="section-title" id="s02-title">Compétences<br>Transverses</h2>
+
+  <!-- Tableau à 2 colonnes : la colonne "Niveau" a été retirée volontairement -->
+  <table class="comp-table">
+    <thead>
+      <tr>
+        <th id="th1">Compétence</th>
+        <th id="th2">Justification / Preuve</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Chaque ligne a un délai d'apparition différent (d1, d2...) pour l'effet de cascade -->
+      <tr class="reveal d1">
+        <td>
+          <div class="comp-name" id="c1n">Organiser son activité</div>
+          <div class="comp-cat"  id="c1c">Autonomie &amp; Planification</div>
+        </td>
+        <td class="comp-proof">
+          <strong id="proof-lbl-1">Preuve :</strong>
+          <span id="c1p">Gestion autonome du parc informatique à l'Hôpital Necker via SMAX — planification des déploiements SCCM en tenant compte des contraintes hospitalières.</span>
+        </td>
+      </tr>
+      <tr class="reveal d2">
+        <td>
+          <div class="comp-name" id="c2n">Agir face aux imprévus</div>
+          <div class="comp-cat"  id="c2c">Résilience &amp; Adaptabilité</div>
+        </td>
+        <td class="comp-proof">
+          <strong id="proof-lbl-2">Preuve :</strong>
+          <span id="c2p">Résolution en autonomie de pannes réseau non documentées lors du déploiement DPO/SCCM. Adaptation des procédures en temps réel sans supervision directe.</span>
+        </td>
+      </tr>
+      <tr class="reveal d3">
+        <td>
+          <div class="comp-name" id="c3n">Travailler en équipe</div>
+          <div class="comp-cat"  id="c3c">Collaboration &amp; Communication</div>
+        </td>
+        <td class="comp-proof">
+          <strong id="proof-lbl-3">Preuve :</strong>
+          <span id="c3p">Coordination en binôme/groupe lors des SAÉ (IPAM full-stack, PyTalk). Gestion des divergences de rythme de travail et répartition des rôles.</span>
+        </td>
+      </tr>
+      <tr class="reveal d4">
+        <td>
+          <div class="comp-name" id="c4n">Analyser et résoudre des problèmes</div>
+          <div class="comp-cat"  id="c4c">Pensée critique &amp; Méthode</div>
+        </td>
+        <td class="comp-proof">
+          <strong id="proof-lbl-4">Preuve :</strong>
+          <span id="c4p">Débogage systématique des projets Python (PyTalk, Assistant-Vocal), documentation des chemins d'erreur et des corrections.</span>
+        </td>
+      </tr>
+      <tr class="reveal d5">
+        <td>
+          <div class="comp-name" id="c5n">Communiquer à l'écrit</div>
+          <div class="comp-cat"  id="c5c">Rédaction technique &amp; Documentation</div>
+        </td>
+        <td class="comp-proof">
+          <strong id="proof-lbl-5">Preuve :</strong>
+          <span id="c5p">Rédaction de rapports de stage structurés, comptes rendus de TP et documentation technique sur GitHub.</span>
+        </td>
+      </tr>
+      <tr class="reveal d6">
+        <td>
+          <div class="comp-name" id="c6n">S'adapter aux outils numériques</div>
+          <div class="comp-cat"  id="c6c">Veille technologique &amp; Apprentissage</div>
+        </td>
+        <td class="comp-proof">
+          <strong id="proof-lbl-6">Preuve :</strong>
+          <span id="c6p">Prise en main autonome de SMAX, SCCM, Microsoft DPO, Google Cloud, Ansible. Certifications Google Cloud obtenues en auto-formation.</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="divider reveal-clip"></div>
+
+<!-- Section 03 : grille de projets, chaque carte est un lien cliquable vers GitHub -->
+<section id="projets">
+  <p class="section-label" id="s03-label">03 — SAÉ &amp; Réalisations</p>
+  <h2 class="section-title" id="s03-title">Projets<br>&amp; Traces</h2>
+
+  <div class="projects-grid">
+
+    <!-- Carte projet 1 — à remplacer par l'URL réelle du repo -->
+    <a href="https://github.com/SeanVnng/SAEs/tree/main/Developper_Des_Applications_Communicantes" target="_blank" rel="noopener" class="project-card reveal d1">
+      <span class="proj-num">001 — Python / Réseau</span>
+      <h3 class="proj-title">PyTalk</h3>
+      <p class="proj-desc" id="p1-desc">Application de messagerie client-serveur en Python utilisant les sockets TCP. Gestion des connexions multiples via threading, interface CLI et protocole de communication maison.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">Sockets TCP</span>
+        <span class="proj-tag">Threading</span>
+        <span class="proj-tag">CLI</span>
+      </div>
+      <p class="proj-limit">
+        <strong id="p1-lim-lbl">Limites identifiées</strong>
+        <span id="p1-lim">Absence de chiffrement TLS, scalabilité limitée. Piste d'amélioration : asyncio + TLS.</span>
+      </p>
+      <span class="proj-gh-label">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        <span id="p1-gh">Voir sur GitHub</span>
+      </span>
+      <span class="proj-arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <a href="https://github.com/SeanVnng/Assistant-Vocal" target="_blank" rel="noopener" class="project-card reveal d2">
+      <span class="proj-num">002 — Python / IA</span>
+      <h3 class="proj-title" id="p2-title">Assistant Vocal</h3>
+      <p class="proj-desc" id="p2-desc">Assistant vocal en Python intégrant reconnaissance vocale (SpeechRecognition), synthèse text-to-speech et réponses dynamiques via API. Automatisation de tâches courantes.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Python</span>
+        <span class="proj-tag">SpeechRecognition</span>
+        <span class="proj-tag">TTS</span>
+        <span class="proj-tag">API REST</span>
+      </div>
+      <p class="proj-limit">
+        <strong id="p2-lim-lbl">Limites identifiées</strong>
+        <span id="p2-lim">Sensibilité au bruit ambiant, dépendance aux APIs tierces. En cours : modèle Whisper local.</span>
+      </p>
+      <span class="proj-gh-label">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        <span id="p2-gh">Voir sur GitHub</span>
+      </span>
+      <span class="proj-arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <a href="https://github.com/SeanVnng/Extension-Chrome-Aesthetic-Notepad-To-Do" target="_blank" rel="noopener" class="project-card reveal d3">
+      <span class="proj-num">003 — Extension Chrome / Productivité</span>
+      <h3 class="proj-title" id="p3-title">Focus Tab</h3>
+      <p class="proj-desc" id="p3-desc">Extension Chrome qui remplace la page "Nouvel Onglet" par un dashboard productif : to-do list avec émojis et horaires, bloc-notes avec export PDF, météo géolocalisée et calendrier mensuel.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">JavaScript</span>
+        <span class="proj-tag">Chrome API</span>
+        <span class="proj-tag">LocalStorage</span>
+        <span class="proj-tag">Open-Meteo API</span>
+        <span class="proj-tag">HTML/CSS</span>
+      </div>
+      <p class="proj-limit">
+        <strong id="p3-lim-lbl">Limites identifiées</strong>
+        <span id="p3-lim">Synchronisation limitée au stockage local. Piste : Chrome Sync Storage pour partage multi-appareils.</span>
+      </p>
+      <span class="proj-gh-label">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        <span id="p3-gh">Voir sur GitHub</span>
+      </span>
+      <span class="proj-arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <a href="https://www.skills.google/public_profiles/adeb98cd-fa14-4181-a650-a406e80edbac" target="_blank" rel="noopener" class="project-card reveal d4">
+      <span class="proj-num">004 — Cloud / Certifications</span>
+      <h3 class="proj-title" id="p4-title">Google Cloud Skills</h3>
+      <p class="proj-desc" id="p4-desc">Certifications obtenues sur Google Cloud Skills Boost : Compute Engine, VPC, IAM, Cloud Storage, et introduction aux services de sécurité GCP.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">GCP</span>
+        <span class="proj-tag">Compute Engine</span>
+        <span class="proj-tag">VPC</span>
+        <span class="proj-tag">IAM</span>
+        <span class="proj-tag">Cloud Storage</span>
+      </div>
+      <p class="proj-limit">
+        <strong id="p4-lim-lbl">Limites identifiées</strong>
+        <span id="p4-lim">Expérience limitée aux labs guidés. Objectif : déployer un projet personnel en production GCP.</span>
+      </p>
+      <span class="proj-gh-label">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        <span id="p4-gh">Voir sur Google Cloud</span>
+      </span>
+      <span class="proj-arrow" aria-hidden="true">↗</span>
+    </a>
+
+  </div>
+</section>
+
+<div class="divider reveal-clip"></div>
+
+<!-- Section 04 : expérience pro (timeline) + centres d'intérêt -->
+<section id="experience">
+  <p class="section-label" id="s04-label">04 — Terrain &amp; Identité</p>
+  <h2 class="section-title" id="s04-title">Expérience<br>&amp; Lifestyle</h2>
+
+  <div class="exp-grid">
+
+    <div>
+      <h3 class="reveal reveal-left" id="exp-h3"
+          style="font-size:1.1rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:40px;">
+        Stage · Hôpital Necker-Enfants Malades
+      </h3>
+      <!-- Timeline du stage : chaque item correspond à une phase -->
+      <div class="timeline">
+        <div class="timeline-item reveal d1">
+          <div class="timeline-date"  id="tl1-date">Phase 1 — Intégration</div>
+          <div class="timeline-title" id="tl1-title">Prise en main de l'environnement</div>
+          <div class="timeline-desc"  id="tl1-desc">Découverte de l'infrastructure hospitalière : parc de milliers de postes, contraintes HDS, outil SMAX, CMDB.</div>
+        </div>
+        <div class="timeline-item reveal d2">
+          <div class="timeline-date"  id="tl2-date">Phase 2 — Déploiement</div>
+          <div class="timeline-title" id="tl2-title">Déploiement Microsoft DPO / SCCM</div>
+          <div class="timeline-desc"  id="tl2-desc">Déploiement et configuration de SCCM. Automatisation des mises à jour, gestion des collections et reporting.</div>
+        </div>
+        <div class="timeline-item reveal d3">
+          <div class="timeline-date"  id="tl3-date">Phase 3 — Autonomie</div>
+          <div class="timeline-title" id="tl3-title">Gestion du parc via SMAX</div>
+          <div class="timeline-desc"  id="tl3-desc">Traitement autonome des tickets. Interventions sur postes critiques avec protocoles de priorité stricts.</div>
+        </div>
+        <div class="timeline-item reveal d4">
+          <div class="timeline-date"  id="tl4-date">Bilan</div>
+          <div class="timeline-title" id="tl4-title">Acquis terrain &amp; Compétences</div>
+          <div class="timeline-desc"  id="tl4-desc">Maîtrise de SCCM, sécurité en environnement critique, gestion du stress dans un contexte hospitalier exigeant.</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="reveal reveal-right" id="life-h3"
+          style="font-size:1.1rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:40px;">
+        Centres d'intérêt · Soft Skills
+      </h3>
+      <div class="lifestyle-grid">
+        <div class="lifestyle-card reveal d2">
+          <div>
+            <div class="lifestyle-title" id="life1-title">🏊 Natation</div>
+            <div class="lifestyle-desc" id="life1-desc">Pratique régulière depuis l'enfance. La natation m'a enseigné la discipline de l'entraînement itératif, la capacité à performer sous pression et la résilience face aux plateaux de progression.</div>
+            <span class="lifestyle-trait" id="lt1a">Discipline</span>
+            <span class="lifestyle-trait" id="lt1b">Résilience</span>
+            <span class="lifestyle-trait" id="lt1c">Régularité</span>
+          </div>
+          <div class="lifestyle-icon" aria-hidden="true">∼</div>
+        </div>
+        <div class="lifestyle-card reveal d3">
+          <div>
+            <div class="lifestyle-title" id="life2-title">📷 Photographie</div>
+            <div class="lifestyle-desc" id="life2-desc">La photographie développe un regard analytique : anticipation des angles, maîtrise de la lumière, précision du cadrage — une attention au détail directement transposable en architecture logicielle.</div>
+            <span class="lifestyle-trait" id="lt2a">Sens du détail</span>
+            <span class="lifestyle-trait" id="lt2b">Créativité</span>
+            <span class="lifestyle-trait" id="lt2c">Précision</span>
+          </div>
+          <div class="lifestyle-icon" aria-hidden="true">◎</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-left">
+    <p id="footer-p1">Ce portfolio est hébergé sur <strong>GitHub Pages</strong> — performance CDN global, traçabilité Git, pertinence dans un profil cybersécurité.</p>
+    <p style="margin-top:10px;" id="footer-p2">Le parti pris <strong>Noir &amp; Blanc</strong> maximise la lisibilité et reflète la rigueur exigée en environnement de sécurité.</p>
+  </div>
+  <ul class="footer-links">
+    <li><a href="https://www.linkedin.com/in/seanvanngoc/" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a href="https://github.com/SeanVnng"        target="_blank" rel="noopener">GitHub</a></li>
+    <li><a href="mailto:seanvanngoc@gmail.com" id="footer-mail">Mail</a></li>
+  </ul>
+  <div class="footer-right">
+    <span>Sean Van Ngoc © 2025</span><br>
+    <span id="footer-r1">BUT R&amp;T Cybersécurité</span><br>
+    <span id="footer-r2">Futur Élève-Ingénieur EFREI</span>
+  </div>
+</footer>
+
+<!-- Script chargé en dernier pour que le DOM soit dispo quand JS s'exécute -->
+<script src="script.js"></script>
+</body>
+</html>
+
+<!-- FAIT PAR SEAN VAN NGOC BUT2 R&T-->
